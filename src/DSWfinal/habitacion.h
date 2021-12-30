@@ -8,7 +8,7 @@
 class Habitacion
 {
 public:
-    Habitacion(Posicion& esquina_inf_dcha);
+    Habitacion(int n_filas, int n_columnas);
     void colocar_puerta_aleatoria(Posicion& pos);
     void obtener_coordenadas_aleatorias_para_robot(Coordenadas& coord) const;
     void colocar_pibot(Coordenadas& coord);
@@ -18,7 +18,8 @@ private:
     static const int MAX_FILAS = 20;
     static const int MAX_COLUMNAS = 60;
     char matriz[MAX_FILAS][MAX_COLUMNAS];
-    Posicion esquina_infd;
+    int filas;
+    int columnas;
 };
 
 #endif // HABITACION_H_INCLUDED

@@ -8,11 +8,10 @@ using namespace std;
 
 int main()
 {
-    Posicion pos1(60, 20);
     Posicion pos_puerta;
-    Habitacion hab1(pos1);
+    Habitacion hab1(20, 30);
     hab1.colocar_puerta_aleatoria(pos_puerta);
     hab1.dibujar();
-    cout << pos1.get_x() << endl;
+
     return 0;
 }
