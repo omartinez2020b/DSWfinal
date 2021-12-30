@@ -1,4 +1,5 @@
 #include "habitacion.h"
+#include "tipos.h"
 
 #include <iostream>
 #include <cstdlib>
@@ -23,7 +24,6 @@ Habitacion::Habitacion(int n_filas, int n_columnas)
 void Habitacion::colocar_puerta_aleatoria(Posicion& pos)
 {
     // Las paredes se numeran del 1 al 4, empezando por la de arriba, yendo en sentido horario
-    srand(time(NULL));
     bool puerta_puesta = false;
     int bricks = 2 * filas  + 2 * (columnas - 2); // Las paredes tienen ese número de bricks
     int door = rand() % bricks; // El número de brick que debe ser sustituido por una puerta
@@ -46,6 +46,20 @@ void Habitacion::colocar_puerta_aleatoria(Posicion& pos)
         }
         i++;
     }
+}
+
+void Habitacion::obtener_coordenadas_aleatorias_para_robot(Coordenadas& coord) const
+{
+    coord.set_x(rand() % (columnas - 1) + 1); // Número de espacios interiores en X
+    coord.set_y(rand() % (filas - 1) + 1); // Número de espacios interiores en Y
+    coord.set_orientacion(t_Orientacion(rand() % 4);
+}
+
+void Habitacion::colocar_pibot(Coordenadas& coord)
+{
+    x = coord.get_x();
+    y = coord.get_y();
+    matriz[x][y] = '^'^;
 }
 
 void Habitacion::dibujar() const

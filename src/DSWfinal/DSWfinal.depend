@@ -1,6 +1,8 @@
 # depslib dependency file v1.0
-1640888370 source:/home/omartinez/DSWfinal/src/DSWfinal/main.cpp
+1640890466 source:/home/omartinez/DSWfinal/src/DSWfinal/main.cpp
 	<iostream>
+	<cstdlib>
+	<ctime>
 	"habitacion.h"
 	"posicion.h"
 
