@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1640886626 source:/home/omartinez/DSWfinal/src/DSWfinal/main.cpp
+	<iostream>
+	"habitacion.h"
+	"posicion.h"
+
+1640886154 /home/omartinez/DSWfinal/src/DSWfinal/habitacion.h
+	"tipos.h"
+	"posicion.h"
+	"coordenadas.h"
+
+1575293208 /home/omartinez/DSWfinal/src/DSWfinal/tipos.h
+
+1574936368 /home/omartinez/DSWfinal/src/DSWfinal/posicion.h
+
+1575293332 /home/omartinez/DSWfinal/src/DSWfinal/coordenadas.h
+	"tipos.h"
+	"posicion.h"
+
+1640886919 source:/home/omartinez/DSWfinal/src/DSWfinal/habitacion.cpp
+	"habitacion.h"
+	<iostream>
+	<cstdlib>
+	<ctime>
+

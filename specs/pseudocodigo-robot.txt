@@ -1,0 +1,37 @@
+
+
+    // Creamos habitacion de dimensiones ancho x largo
+    Posicion esquina_inferior_derecha_habitacion(ancho, largo);
+    Habitacion habitacion(esquina_inferior_derecha_habitacion);
+
+    // Colocamos puerta
+    Posicion posicion_puerta;
+    habitacion.colocar_puerta_aleatoria(posicion_puerta);
+
+    // Creamos robot con coordenadas iniciales
+    Coordenadas coord_robot;
+    habitacion.obtener_coordenadas_aleatorias_para_robot(coord_robot);
+    Robot robot(coord_robot);
+
+    // Colocamos robot en habitacion
+    habitacion.colocar_robot(coord_robot);
+    habitacion.dibujar();
+
+    // Ejecutamos algoritmo de busqueda de puerta
+    while (!puerta_detectada)
+    {
+        puerta_detectada = robot.detectar_objeto(posicion_puerta);
+        if (!puerta_detectada)
+        {
+            lectura_us = robot.leer_ultrasonidos(esquina_inferior_derecha_habitacion);
+             if (lectura_us > robot.obtener_distancia_avance() )
+                robot.avanzar();
+            else
+                robot.girar_derecha();
+
+            robot.get_coordenadas(coord_robot);
+            habitacion.colocar_robot(coord_robot);
+            habitacion.dibujar();
+        }
+        retardo(100 milisegundos);
+    }
