@@ -8,7 +8,7 @@
 class Habitacion
 {
 public:
-    Habitacion(int n_filas, int n_columnas);
+    Habitacion(int n_filas, int n_columnas, Posicion& esquina_infd);
     void colocar_puerta_aleatoria(Posicion& pos);
     void obtener_coordenadas_aleatorias_para_robot(Coordenadas& coord) const;
     void colocar_pibot(Coordenadas& coord);

@@ -36,6 +36,8 @@
 		<Unit filename="habitacion.cpp" />
 		<Unit filename="habitacion.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="pibot.cpp" />
+		<Unit filename="pibot.h" />
 		<Unit filename="posicion.h" />
 		<Unit filename="robot.h" />
 		<Unit filename="tipos.h" />

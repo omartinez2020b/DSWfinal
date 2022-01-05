@@ -1,12 +1,14 @@
 # depslib dependency file v1.0
-1640890466 source:/home/omartinez/DSWfinal/src/DSWfinal/main.cpp
+1641245279 source:/home/omartinez/DSWfinal/src/DSWfinal/main.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
 	"habitacion.h"
 	"posicion.h"
+	"coordenadas.h"
+	"pibot.h"
 
-1640888261 /home/omartinez/DSWfinal/src/DSWfinal/habitacion.h
+1640953271 /home/omartinez/DSWfinal/src/DSWfinal/habitacion.h
 	"tipos.h"
 	"posicion.h"
 	"coordenadas.h"
@@ -19,9 +21,21 @@
 	"tipos.h"
 	"posicion.h"
 
-1640888293 source:/home/omartinez/DSWfinal/src/DSWfinal/habitacion.cpp
+1641245377 source:/home/omartinez/DSWfinal/src/DSWfinal/habitacion.cpp
 	"habitacion.h"
+	"tipos.h"
 	<iostream>
 	<cstdlib>
 	<ctime>
+
+1641245521 source:/home/omartinez/DSWfinal/src/DSWfinal/pibot.cpp
+	"pibot.h"
+	"tipos.h"
+	<iostream>
+
+1641243436 /home/omartinez/DSWfinal/src/DSWfinal/pibot.h
+	"robot.h"
+
+1640954178 /home/omartinez/DSWfinal/src/DSWfinal/robot.h
+	"coordenadas.h"
 
