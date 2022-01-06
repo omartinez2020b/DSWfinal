@@ -16,7 +16,6 @@ void Pibot::avanzar(void)
 
     coord.set_x(x);
     coord.set_y(y);
-    distancia_avance++;
 }
 
 bool Pibot::detectar_objeto(Posicion& pos_objeto)
@@ -32,16 +31,16 @@ bool Pibot::detectar_objeto(Posicion& pos_objeto)
     switch(ori)
     {
         case ESTE:
-            if (x_robot == x_obj && y_robot == y_obj + 1) detectado = true;
+            if (x_robot == x_obj && y_robot == y_obj + alcance_sensor) detectado = true;
             break;
         case SUR:
-            if (x_robot == x_obj - 1 && y_robot == y_obj) detectado = true;
+            if (x_robot == x_obj - alcance_sensor && y_robot == y_obj) detectado = true;
             break;
         case OESTE:
-             if (x_robot == x_obj && y_robot == y_obj - 1) detectado = true;
+             if (x_robot == x_obj && y_robot == y_obj - alcance_sensor) detectado = true;
             break;
         default:
-            if (x_robot == x_obj + 1 && y_robot == y_obj) detectado = true;
+            if (x_robot == x_obj + alcance_sensor && y_robot == y_obj) detectado = true;
     }
 
     return detectado;

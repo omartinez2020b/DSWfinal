@@ -39,3 +39,51 @@
 1640954178 /home/omartinez/DSWfinal/src/DSWfinal/robot.h
 	"coordenadas.h"
 
+1641403556 source:/home/alumnos/oscarmz/DSWfinal/src/DSWfinal/habitacion.cpp
+	"habitacion.h"
+	"tipos.h"
+	<iostream>
+	<cstdlib>
+	<ctime>
+
+1641403556 /home/alumnos/oscarmz/DSWfinal/src/DSWfinal/habitacion.h
+	"tipos.h"
+	"posicion.h"
+	"coordenadas.h"
+
+1641403556 /home/alumnos/oscarmz/DSWfinal/src/DSWfinal/tipos.h
+
+1641403556 /home/alumnos/oscarmz/DSWfinal/src/DSWfinal/posicion.h
+
+1641403556 /home/alumnos/oscarmz/DSWfinal/src/DSWfinal/coordenadas.h
+	"tipos.h"
+	"posicion.h"
+
+1641409061 source:/home/alumnos/oscarmz/DSWfinal/src/DSWfinal/main.cpp
+	<iostream>
+	<cstdlib>
+	<ctime>
+	"habitacion.h"
+	"posicion.h"
+	"coordenadas.h"
+	"pibot.h"
+	"tello.h"
+
+1641407711 /home/alumnos/oscarmz/DSWfinal/src/DSWfinal/pibot.h
+	"robot.h"
+
+1641407705 /home/alumnos/oscarmz/DSWfinal/src/DSWfinal/robot.h
+	"coordenadas.h"
+
+1641407718 source:/home/alumnos/oscarmz/DSWfinal/src/DSWfinal/pibot.cpp
+	"pibot.h"
+	"tipos.h"
+	<iostream>
+
+1641409191 /home/alumnos/oscarmz/DSWfinal/src/DSWfinal/tello.h
+	"pibot.h"
+
+1641409662 source:/home/alumnos/oscarmz/DSWfinal/src/DSWfinal/tello.cpp
+	"tello.h"
+	<iostream>
+
