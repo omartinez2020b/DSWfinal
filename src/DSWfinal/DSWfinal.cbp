@@ -40,6 +40,10 @@
 		<Unit filename="pibot.h" />
 		<Unit filename="posicion.h" />
 		<Unit filename="robot.h" />
+		<Unit filename="simulacion.cpp" />
+		<Unit filename="simulacion.h" />
+		<Unit filename="tello.cpp" />
+		<Unit filename="tello.h" />
 		<Unit filename="tipos.h" />
 		<Extensions />
 	</Project>

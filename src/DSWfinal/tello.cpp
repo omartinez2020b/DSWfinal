@@ -7,7 +7,7 @@ void Tello::avanzar()
     cout << bateria_actual << endl;
     if (bateria_actual > 0)
     {
-        for (int i = 0; i < 2; i++) Pibot::avanzar();
+        for (int i = 0; i < 2; i++) Pibot::avanzar(); // Simplemente se avanza dos veces
         bateria_actual--;
     }
     else Pibot::avanzar();

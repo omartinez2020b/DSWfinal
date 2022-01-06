@@ -6,14 +6,14 @@
 class Pibot : public Robot
 {
     public:
-        Pibot(const Coordenadas& c): Robot(c) {}
-        virtual void avanzar(void);
-        virtual bool detectar_objeto(Posicion& pos_objeto);
-        virtual int leer_ultrasonidos(Posicion& pos_esquina);
-        virtual void girar_derecha(void);
-    private:
-        static const int alcance_sensor = 1;
+        Pibot(const Coordenadas& c): Robot(c) { alcance_sensor = ALCANCE; }
+        void avanzar(void);
+        bool detectar_objeto(Posicion& pos_objeto);
+        int leer_ultrasonidos(Posicion& pos_esquina);
+        void girar_derecha(void);
 
+    private:
+        static const int ALCANCE = 1; // Alcance sensor del Pibot
 
 
 };

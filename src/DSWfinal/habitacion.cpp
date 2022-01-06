@@ -6,7 +6,7 @@
 #include <ctime>
 using namespace std;
 
-Habitacion::Habitacion(int n_filas, int n_columnas, Posicion& esquina_infd)
+Habitacion::Habitacion(int n_filas, int n_columnas)
 {
     filas = n_filas;
     columnas = n_columnas;

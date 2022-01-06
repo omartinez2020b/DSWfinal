@@ -23,26 +23,25 @@ bool Pibot::detectar_objeto(Posicion& pos_objeto)
     bool detectado = false;
     int x_obj = pos_objeto.get_x();
     int y_obj = pos_objeto.get_y();
-
     int x_robot = coord.get_x();
     int y_robot = coord.get_y();
     t_Orientacion ori = coord.get_orientacion();
-
+    /* Se añaden tantos casos para que funcionen con cualquier robot derivado al pibot, con un alcance
+    de sensor cualquiera */
     switch(ori)
     {
         case ESTE:
-            if (x_robot == x_obj && y_robot == y_obj + alcance_sensor) detectado = true;
+            if (y_robot > y_obj && x_robot == x_obj && y_robot <= y_obj + alcance_sensor) detectado = true;
             break;
         case SUR:
-            if (x_robot == x_obj - alcance_sensor && y_robot == y_obj) detectado = true;
+            if (x_robot < x_obj && x_robot >= x_obj - alcance_sensor && y_robot == y_obj) detectado = true;
             break;
         case OESTE:
-             if (x_robot == x_obj && y_robot == y_obj - alcance_sensor) detectado = true;
+             if (y_robot < y_obj &&  x_robot == x_obj && y_robot >= y_obj - alcance_sensor) detectado = true;
             break;
         default:
-            if (x_robot == x_obj + alcance_sensor && y_robot == y_obj) detectado = true;
+            if (x_robot > x_obj && x_robot <= x_obj + alcance_sensor && y_robot == y_obj) detectado = true;
     }
-
     return detectado;
 }
 
