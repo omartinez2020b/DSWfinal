@@ -15,6 +15,7 @@ public:
     void colocar_tello(Coordenadas& coord, bool volando);
     void dibujar(void) const;
     void get_esquina_infd(Posicion& eid) { eid = esquina_infd; }
+    void reset();
 
 private:
     Posicion esquina_infd;

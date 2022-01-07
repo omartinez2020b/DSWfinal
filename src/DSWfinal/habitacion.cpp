@@ -8,8 +8,18 @@ using namespace std;
 
 Habitacion::Habitacion(int n_filas, int n_columnas)
 {
-    filas = n_filas;
-    columnas = n_columnas;
+    if (n_filas > MAX_FILAS) filas = MAX_FILAS;
+    else filas = n_filas;
+
+    if (n_columnas > MAX_COLUMNAS) columnas = MAX_COLUMNAS;
+    else columnas = n_columnas;
+
+    // Esta es una función inicializadora, que pone toda la habitación en blanco
+    reset();
+}
+
+void Habitacion::reset()
+{
     esquina_infd.set_x(columnas -1);
     esquina_infd.set_y(filas - 1);
     for (int i = 0; i < filas; i++)
@@ -25,34 +35,18 @@ Habitacion::Habitacion(int n_filas, int n_columnas)
 
 void Habitacion::colocar_puerta_aleatoria(Posicion& pos)
 {
-    // Las paredes se numeran del 1 al 4, empezando por la de arriba, yendo en sentido horario
-    bool puerta_puesta = false;
-    int bricks = 2 * filas  + 2 * (columnas - 2); // Las paredes tienen ese número de bricks
-    int door = rand() % bricks; // El número de brick que debe ser sustituido por una puerta
-    cout << door << endl;
-    int i = 0;
-    int n = 0; // Cantidad de bricks evaluados
-
-    while (i < filas && !puerta_puesta)
-    {
-        int j = 0;
-        while (j < columnas && !puerta_puesta)
-        {
-            if (matriz[i][j] == '*')
-            {
-                if (n == door)
-                {
-                    matriz[i][j] = 'P';
-                    pos.set_x(j);
-                    pos.set_y(i);
-                    puerta_puesta = true;
-                }
-                n++;
-            }
-            j++;
-        }
-        i++;
-    }
+    /* Primero se obtiene una pared aleatoria y luego se obtiene su posición
+    mediante la fórmula (rand() % (filas/columnas - 2)) + 1, esto es, se generan
+    números entre 0 y filas/columnas - 2 y se le añade 1 */
+    t_Orientacion pared = t_Orientacion(rand() % 4);
+    int x, y;
+    if (pared == NORTE) {y = 0; x = (rand() % (columnas - 2)) + 1; }
+    else if (pared == ESTE) {x = columnas - 1; y = (rand() % (filas - 2)) + 1; }
+    else if (pared == OESTE) {x = 0; y = (rand() % (filas - 2)) + 1;}
+    else {y = filas - 1; x = (rand() % (columnas - 2)) + 1; }
+    matriz[y][x] = 'P';
+    pos.set_x(x);
+    pos.set_y(y);
 }
 
 void Habitacion::obtener_coordenadas_aleatorias_para_robot(Coordenadas& coord) const

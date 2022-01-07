@@ -1,16 +1,12 @@
 # depslib dependency file v1.0
-1641464334 source:/home/omartinez/DSWfinal/src/DSWfinal/main.cpp
+1641499157 source:/home/omartinez/DSWfinal/src/DSWfinal/main.cpp
 	<iostream>
 	<cstdlib>
 	<ctime>
-	"unistd.h"
 	"habitacion.h"
-	"posicion.h"
-	"coordenadas.h"
-	"pibot.h"
-	"tello.h"
+	"simulacion.h"
 
-1641465522 /home/omartinez/DSWfinal/src/DSWfinal/habitacion.h
+1641497664 /home/omartinez/DSWfinal/src/DSWfinal/habitacion.h
 	"tipos.h"
 	"posicion.h"
 	"coordenadas.h"
@@ -23,7 +19,7 @@
 	"tipos.h"
 	"posicion.h"
 
-1641465404 source:/home/omartinez/DSWfinal/src/DSWfinal/habitacion.cpp
+1641497735 source:/home/omartinez/DSWfinal/src/DSWfinal/habitacion.cpp
 	"habitacion.h"
 	"tipos.h"
 	<iostream>
@@ -35,10 +31,10 @@
 	"tipos.h"
 	<iostream>
 
-1641465861 /home/omartinez/DSWfinal/src/DSWfinal/pibot.h
+1641493202 /home/omartinez/DSWfinal/src/DSWfinal/pibot.h
 	"robot.h"
 
-1641463054 /home/omartinez/DSWfinal/src/DSWfinal/robot.h
+1641493279 /home/omartinez/DSWfinal/src/DSWfinal/robot.h
 	"coordenadas.h"
 	<iostream>
 
@@ -90,12 +86,20 @@
 	"tello.h"
 	<iostream>
 
-1641465793 /home/omartinez/DSWfinal/src/DSWfinal/tello.h
+1641498613 /home/omartinez/DSWfinal/src/DSWfinal/tello.h
 	"pibot.h"
 
-1641463093 source:/home/omartinez/DSWfinal/src/DSWfinal/tello.cpp
+1641498623 source:/home/omartinez/DSWfinal/src/DSWfinal/tello.cpp
 	"tello.h"
 	<iostream>
 
-1641464528 source:/home/omartinez/DSWfinal/src/DSWfinal/simulacion.cpp
+1641499065 source:/home/omartinez/DSWfinal/src/DSWfinal/simulacion.cpp
+	"simulacion.h"
+
+1641499146 /home/omartinez/DSWfinal/src/DSWfinal/simulacion.h
+	"pibot.h"
+	"tello.h"
+	"habitacion.h"
+	"posicion.h"
+	"coordenadas.h"
 

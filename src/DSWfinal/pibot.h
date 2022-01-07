@@ -7,6 +7,7 @@ class Pibot : public Robot
 {
     public:
         Pibot(const Coordenadas& c): Robot(c) { alcance_sensor = ALCANCE; }
+        virtual ~Pibot() {}
         void avanzar(void);
         bool detectar_objeto(Posicion& pos_objeto);
         int leer_ultrasonidos(Posicion& pos_esquina);
