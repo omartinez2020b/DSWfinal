@@ -9,9 +9,11 @@ using namespace std;
 Habitacion::Habitacion(int n_filas, int n_columnas)
 {
     if (n_filas > MAX_FILAS) filas = MAX_FILAS;
+    else if (n_filas < MIN_FILAS) filas = MIN_FILAS;
     else filas = n_filas;
 
     if (n_columnas > MAX_COLUMNAS) columnas = MAX_COLUMNAS;
+    else if (n_columnas < MIN_COLUMNAS) columnas = MIN_COLUMNAS;
     else columnas = n_columnas;
 
     // Esta es una función inicializadora, que pone toda la habitación en blanco

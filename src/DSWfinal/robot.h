@@ -18,10 +18,12 @@ class Robot
         virtual int leer_ultrasonidos(Posicion& pos_esquina) = 0;
         virtual void avanzar(void) = 0;
         virtual void girar_derecha(void) = 0;
+        virtual int obtener_distancia_avance(void) = 0;
 
 
     protected:
         Coordenadas coord;
+        int distancia_avance;
         int alcance_sensor;
 };
 

@@ -1,65 +1,65 @@
 #include "simulacion.h"
+#include <unistd.h>
 
-/* Esta función tiene más de 20 líneas, dado que sería lo que iría en el main pero
-se ha puesto así para facilitar la abstracción y el uso de la simulación */
+/* Esta función tiene escasamente más de 20 líneas, debido a que se ha puesto el código
+de manera más legible con espacios en blanco */
 void Simulacion::simular_tello()
 {
+    int lectura_distancia;
+    bool volando = false;
     inicializar_entorno();
     Tello* tello = new Tello(coord_robot);
-    hab.colocar_tello(coord_robot, false);
-    /* El tello tiene un fallo de diseño, puesto que su sensor tiene 2 de alcance,
-    si la puerta está justo en el bloque de en medio entre él y la de enfrente
-    (en alguna de las paredes de los lados), no se detectará nunca. Por lo tanto,
-    se reduce cuando se alcanzan 200 iteraciones la distancia para girar a 0 */
-    int iters = 0;
-    int detect = 1;
-    bool puerta = tello->detectar_objeto(pos_puerta);
-    int distancia = tello->leer_ultrasonidos(pos_esquina_infd);
-    while (!puerta)
+    hab.colocar_tello(coord_robot, volando);
+    hab.dibujar();
+
+    bool puerta_detectada = tello->detectar_objeto(pos_puerta);
+
+    while (!puerta_detectada)
     {
+        sleep(1); // Los giros también duran 1s: decisión de diseño
         system("clear");
-        if (distancia <= detect) tello->girar_derecha();
-        else tello->avanzar();
+        volando = !puerta_detectada;
+        lectura_distancia = tello->leer_ultrasonidos(pos_esquina_infd);
+        if (lectura_distancia < tello->obtener_distancia_avance())
+            tello->girar_derecha();
+        else
+            tello->avanzar();
+
         tello->get_coordenadas(coord_robot);
-        hab.colocar_tello(coord_robot, true);
+        hab.colocar_tello(coord_robot, volando);
         hab.dibujar();
-        puerta = tello->detectar_objeto(pos_puerta);
-        distancia = tello->leer_ultrasonidos(pos_esquina_infd);
-        iters++;
-        if (iters > 200) detect = 0;
+        puerta_detectada = tello->detectar_objeto(pos_puerta);
     }
     system("clear");
-    hab.colocar_tello(coord_robot, false);
+    hab.colocar_tello(coord_robot, volando);
     hab.dibujar();
     delete tello;
 }
 
-void Simulacion::inicializar_entorno()
-{
-    hab.get_esquina_infd(pos_esquina_infd);
-    hab.colocar_puerta_aleatoria(pos_puerta);
-    hab.obtener_coordenadas_aleatorias_para_robot(coord_robot);
-    hab.dibujar();
-}
-
 void Simulacion::simular_pibot()
 {
+    int lectura_distancia;
     inicializar_entorno();
     Pibot* pibot = new Pibot(coord_robot);
     hab.colocar_pibot(coord_robot);
+    hab.dibujar();
 
-    bool puerta = pibot->detectar_objeto(pos_puerta);
-    int distancia = pibot->leer_ultrasonidos(pos_esquina_infd);
-    while (!puerta)
+    bool puerta_detectada = pibot->detectar_objeto(pos_puerta);
+
+    while (!puerta_detectada)
     {
+        sleep(1); // Los giros también duran 1s: decisión de diseño
         system("clear");
-        if (distancia == 0) pibot->girar_derecha();
-        else pibot->avanzar();
+        lectura_distancia = pibot->leer_ultrasonidos(pos_esquina_infd);
+        if (lectura_distancia < pibot->obtener_distancia_avance())
+            pibot->girar_derecha();
+        else
+            pibot->avanzar();
+
         pibot->get_coordenadas(coord_robot);
         hab.colocar_pibot(coord_robot);
         hab.dibujar();
-        puerta = pibot->detectar_objeto(pos_puerta);
-        distancia = pibot->leer_ultrasonidos(pos_esquina_infd);
+        puerta_detectada = pibot->detectar_objeto(pos_puerta);
     }
     system("clear");
     hab.colocar_pibot(coord_robot);
@@ -67,4 +67,11 @@ void Simulacion::simular_pibot()
     delete pibot;
 }
 
+// Realiza todas las funciones necesarias iniciales de la habitación
+void Simulacion::inicializar_entorno()
+{
+    hab.get_esquina_infd(pos_esquina_infd);
+    hab.colocar_puerta_aleatoria(pos_puerta);
+    hab.obtener_coordenadas_aleatorias_para_robot(coord_robot);
+}
 

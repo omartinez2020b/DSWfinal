@@ -20,7 +20,9 @@ public:
 private:
     Posicion esquina_infd;
     static const int MAX_FILAS = 20;
+    static const int MIN_FILAS = 6;
     static const int MAX_COLUMNAS = 60;
+    static const int MIN_COLUMNAS = 6;
     char matriz[MAX_FILAS][MAX_COLUMNAS];
     int filas;
     int columnas;

@@ -13,13 +13,13 @@ int main()
     int filas, columnas;
     int sel = 0;
     cout << "---------------------------------------------------------------------" << endl;
-    cout << "Bienvenido al escenario de simulación de Lo-Rovout SL, by Iguant Aten" << endl;
+    cout << "Bienvenido al escenario de simulación de Lo-Rovout SL, by Iguan T.Aten" << endl;
     cout << "---------------------------------------------------------------------" << endl;
     cout << endl;
     cout << "Para empezar, vamos a establecer el tamaño del entorno simulado" << endl;
-    cout << "Introduzca el número de filas (máximo 20): ";
+    cout << "Introduzca el número de filas (6-20): ";
     cin >> filas;
-    cout << "Introduzca el número de columnas (máximo 60): ";
+    cout << "Introduzca el número de columnas (6-60): ";
     cin >> columnas;
     Habitacion hab(filas, columnas);
     Simulacion entorno(hab);

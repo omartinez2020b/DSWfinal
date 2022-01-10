@@ -7,8 +7,9 @@ class Tello : public Pibot
 {
     public:
         /* A efectos prácticos, el funcionamiento de un tello es el mismo que un pibot
-        a excepción de: 1. Hay que realizar el control de vuelo 2. Avanza 2 en vez de 1 */
-        Tello(const Coordenadas& c): Pibot(c), bateria_actual(BATERIA_INICIAL) { alcance_sensor = ALCANCE; }
+        a excepción de que mientras tenga batería, distancia_avance = 2; */
+        Tello(const Coordenadas& c): Pibot(c), bateria_actual(BATERIA_INICIAL)
+            { alcance_sensor = ALCANCE; distancia_avance = AVANCE_INICIAL; }
         ~Tello() {}
         void avanzar(void);
 
@@ -18,6 +19,7 @@ class Tello : public Pibot
 
     private:
         static const int ALCANCE = 2;
+        static const int AVANCE_INICIAL = 2;
 };
 
 
